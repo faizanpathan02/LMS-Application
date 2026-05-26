@@ -1,10 +1,8 @@
 package com.lms.main.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.lms.main.enums.UserStatus;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -26,5 +24,11 @@ public class User {
     private String uname;
 
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private UserStatus status;
+
+    @Column(name = "user_code" , unique = true)
+    private String userCode;
 
 }
